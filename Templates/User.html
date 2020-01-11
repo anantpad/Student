@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- <style>
+    #firstname {
+      margin: 35px 70px 50px 90px;
+    }
+  </style> -->
+  </head>
+  <body>
+    <h1 class="bg-info p-5">Student Details</h1>
+    <form class="bg-light" action="/registerStudent" method="post">
+      <div class="form-row ml-5 mr-5">
+        <div class="form-group col-2">
+          <label for="studentid" class="text-primary">Student Id</label>
+          <input type="text" class="form-control" name="studentid" placeholder="A2C45" value="{{studentid}}" id="studentid">
+        </div>
+        <div class="form-group col-4">
+          <label for="firstname" class="text-primary">First Name</label>
+          <input type="text" class="form-control" name="firstname" placeholder="First Name" value="{{firstname}}" id="firstname">
+        </div>
+        <div class="form-group col-5">
+          <label for="lastname" class="text-primary">Last Name</label>
+          <input type="text" class="form-control" name="mi" placeholder="X" value="{{mi}}" id="mi">
+        </div>
+        <div class="form-group col-1">
+          <label for="mi" class="text-primary">MI</label>
+          <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{lastname}}" id="lastname">
+        </div>
+      </div>
+      <div class="form-row ml-5 mr-5">
+        <div class="form-group col-6">
+          <label for="gender" class="text-primary">Gender</label>
+          <select class="form-control" name="gender" id="gender" value="{{gender}}">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Unknown</option>
+          </select>
+        </div>
+        <div class="form-group col-6">
+          <label for="birthdate" class="text-primary">Birth Date</label>
+          <input type="date" class="form-control" name="birthdate" placeholder="Birth Date" value="{{birthdate}}" id="birthdate">
+        </div>
+      </div>
+        <div class="form-row ml-5">
+          <div class="form-group">
+            <input type="submit" class="form-control" value="Click Here to Register">
+          </div>
+        </div>
+    </form>
+  </body>
+</html>
