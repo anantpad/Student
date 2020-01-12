@@ -44,7 +44,7 @@ def register():
 @app.route("/studentList", methods = ['GET', 'POST'])
 def list():
     if request.method == 'GET':
-        return render_template("studentList")
+        return render_template("studentList.html")
 
 #run
 if __name__ == "__main__":
