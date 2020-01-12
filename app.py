@@ -49,7 +49,7 @@ def list():
 @app.route("/delete", methods = ['GET', 'POST'])
 def delete():
     if request.method == ['GET']:
-        return request
+        return request.args
 #run
 if __name__ == "__main__":
     app.run()
