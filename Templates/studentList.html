@@ -50,9 +50,11 @@
               <td>{{each_dict[each_key]}}</td>
               {% endif %}
               {% endfor %}
-              <td></td>
               <td>
-                <a href="/delete" class="btn btn-danger">
+                <a href="/editStudent" class="btn btn-info"><i class="fa fa-edit"></i></a>
+              </td>
+              <td>
+                <a href="/delete?a=30" class="btn btn-danger">
                   <i class="fa fa-trash"></i>
                 </a>
               </td>
@@ -62,6 +64,7 @@
         </table>
       </div>
     </div>
+
     </form>
   </body>
 </html>

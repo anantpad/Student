@@ -3,6 +3,7 @@
 from flask import Flask, request, render_template
 from flask_pymongo import PyMongo
 from flask import redirect
+from datetime import datetime
 
 #initialize
 #this function initializes any application
@@ -20,8 +21,13 @@ print(mongo.db)
 def login():
     if request.method == 'GET':
         return render_template("login.html")
-    # else:
-        # return redirect("/registerStudent")
+    else:
+        studentid = request.form["studentid"]
+        checkintime = datetime.now()
+        mongo.db.attendance.update_one(
+            {"studentid":studentid},{"$set":{"checkintime":checkintime}},upsert=True
+        )
+        return redirect("/")
 
 @app.route("/registerStudent", methods = ['GET', 'POST'])
 def register():
@@ -45,6 +51,12 @@ def list():
         data = mongo.db.user.find({})
         print(data)
         return render_template("studentList.html", data = data)
+
+# @app.route("/editStudent", methods = ['GET', 'POST'])
+# def edit():
+#     if request.method == 'POST':
+#
+
 
 @app.route("/delete", methods = ['GET', 'POST'])
 def delete():
