@@ -11,5 +11,31 @@
 </head>
 <body>
   <h1 class="bg-warning p-5">Student Attendance <i class="fas fa-user-plus"></i></h1>
+  <form class="form-row p-5" action="/attendance" method="post">
+  <table class="table table-table-bordered">
+    <thead>
+      <tr>
+        <th>Student Id</th>
+        <th>CheckIn Date</th>
+        <th>CheckIn Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for each_dict in attenddata %}
+      <tr>
+        {% for each_key in each_dict %}
+        {% if each_key = "studentid" %}
+        <td>{{each_dict[each_key]}}</td>
+        {% endif %}
+        <td></td>
+        {% if each_key = "checkintime" %}
+        <td>{{each_dict[each_key]}}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </form>
 </body>
 </html>

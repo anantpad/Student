@@ -27,7 +27,7 @@ def login():
         mongo.db.attendance.update_one(
             {"studentid":studentid},{"$set":{"checkintime":checkintime}},upsert=True
         )
-        return redirect("/")
+        return redirect("/attendance")
 
 @app.route("/registerStudent", methods = ['GET', 'POST'])
 def register():
@@ -57,6 +57,11 @@ def list():
 #     if request.method == 'POST':
 #
 
+@app.route("/attendanceList", methods = ['GET', 'POST'])
+def attndlist():
+    if request.method == 'GET':
+        attenddata = mongo.db.attendance.find({})
+        return render_template("attendance.html", attenddata = attenddata)
 
 @app.route("/delete", methods = ['GET', 'POST'])
 def delete():
