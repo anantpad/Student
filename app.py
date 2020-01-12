@@ -19,9 +19,7 @@ print(mongo.db)
 @app.route("/", methods = ['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        data = mongo.db.user.find({})
-        print(data)
-        return render_template("login.html", data = data)
+        return render_template("login.html")
     # else:
         # return redirect("/registerStudent")
 
@@ -44,8 +42,14 @@ def register():
 @app.route("/studentList", methods = ['GET', 'POST'])
 def list():
     if request.method == 'GET':
-        return render_template("studentList.html")
+        data = mongo.db.user.find({})
+        print(data)
+        return render_template("studentList.html", data = data)
 
+@app.route("/delete", methods = ['GET', 'POST'])
+def delete():
+    if request.method == ['GET']:
+        return request
 #run
 if __name__ == "__main__":
     app.run()
