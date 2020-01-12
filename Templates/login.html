@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Student Login</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1 class="bg-info p-5">Student Registration</h1>
+    <h1 class="bg-warning p-5">Student Registration <i class="fa fa-rocket"></i></h1>
     <form class="form-inline pt-5 pb-5 bg-light" action="/" method="post">
         <div class="form-group pl-5">
           <label for="studentid" class="sr-only">Login Name</label>
@@ -22,26 +23,19 @@
         <div class="form-group pl-5">
           <button type="button" class="btn btn-primary">Sign In</button>
         </div>
-        <div class="form-row pl-5">
-<!--          <button type="button" class="btn btn-link" name="button">Click Here to Register</button>-->
-           <a class="btn btn-link" role="button" href="/registerStudent">Click to Register Here</a>
-          <!-- <input type="submit" class="form-control" value="Click Here to Register"> -->
+    </form>
+      <div class="form-row p-5 bg-info">
+        <div class="col-6">
+          <label for="register" class="text">Not Registered Yet?</label>
+<!--        <button type="button" class="btn btn-link" name="button">Click Here to Register</button>-->
+          <a class="btn btn-primary" role="button" id="register" href="/registerStudent">Register Here</a>
+        <!-- <input type="submit" class="form-control" value="Click Here to Register"> -->
         </div>
-      </form>
-        <div class="">
-          {% for each_dict in data %}
-            {% for each in each_dict %}
-              <p>{{each}}:{{each_dict[each]}}</p>
-            {% endfor %}
-            <hr>
-          {% endfor %}
+        <div class="col-6">
+          <label for="register" class="text">Already Registered?</label>
+<!--        <button type="button" class="btn btn-link" name="button">Click Here to Register</button>-->
+          <a class="btn btn-primary" role="button" id="register" href="/studentList">Look at List Here</a>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-            </tr>
-          </thead>
-        </table>
-    </body>
+      </div>
+  </body>
 </html>

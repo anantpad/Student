@@ -41,6 +41,11 @@ def register():
              "birthdate": birthdate})
         return redirect("/")
 
+@app.route("/studentList", methods = ['GET', 'POST'])
+def list():
+    if request.method == 'GET':
+        return render_template("studentList")
+
 #run
 if __name__ == "__main__":
     app.run()
