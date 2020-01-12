@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List of Students</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1 class="bg-warning p-5">List of Registered Students <i class="fa fa-users"></i></h1>
+    <form class="" action="/studentList" method="post">
+    <div class="form-row pl-5 pr-5 pt-5">
+      <label for="back" class="sr-only">Back to Login Page</label>
+      <a class="btn btn-primary" role="button" id="back" href="/">Back</a>
+    </div>
+    <div class="form-row pl-5 pr-5 pt-5">
+      <div class="col-12">
+        <table class="table table-responsive-sm table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>Student Id</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Birth Date</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for each_dict in data %}
+            <tr>
+              {% for each_key in each_dict %}
+              {% if each_key == "studentid" %}
+              <td>{{each_dict[each_key]}}</td>
+              {% endif %}
+              {% if each_key == "firstname" %}
+              <td>{{each_dict[each_key]}}</td>
+              {% endif %}
+              {% if each_key == "lastname" %}
+              <td>{{each_dict[each_key]}}</td>
+              {% endif %}
+              {% if each_key == "gender" %}
+              <td>{{each_dict[each_key]}}</td>
+              {% endif %}
+              {% if each_key == "birthdate" %}
+              <td>{{each_dict[each_key]}}</td>
+              {% endif %}
+              {% endfor %}
+              <td></td>
+              <td>
+                <a href="/delete">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </form>
+  </body>
+</html>
