@@ -12,6 +12,14 @@
 <body>
   <h1 class="bg-warning p-5">Student Attendance <i class="fas fa-user-plus"></i></h1>
   <form class="form-row p-5" action="/attendance" method="post">
+    <div class="form-row pl-5 pr-5 pt-5">
+      <label for="back" class="sr-only">Back to Login Page</label>
+      <a class="btn btn-primary" role="button" id="back" href="/">Back</a>
+    </div>
+    <div class="form-row pl-5 pr-5 pt-5">
+      <label for="logout" class="sr-only">Logout</label>
+      <a class="btn btn-danger" role="button" id="logout" href="/logout">Logout</a>
+    </div>
   <table class="table table-table-bordered">
     <thead>
       <tr>
@@ -24,11 +32,13 @@
       {% for each_dict in attenddata %}
       <tr>
         {% for each_key in each_dict %}
-        {% if each_key = "studentid" %}
+        {% if each_key == "studentid" %}
         <td>{{each_dict[each_key]}}</td>
         {% endif %}
-        <td></td>
-        {% if each_key = "checkintime" %}
+        {% if each_key == "checkintime" %}
+        <td>{{each_dict[each_key]}}</td>
+        {% endif %}
+        {% if each_key == "checkintime" %}
         <td>{{each_dict[each_key]}}</td>
         {% endif %}
         {% endfor %}

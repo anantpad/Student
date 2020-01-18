@@ -12,10 +12,12 @@
   <body>
     <h1 class="bg-warning p-5">List of Registered Students <i class="fa fa-users"></i></h1>
     <form class="" action="/studentList" method="post">
-    <div class="form-row pl-5 pr-5 pt-5">
-      <label for="back" class="sr-only">Back to Login Page</label>
-      <a class="btn btn-primary" role="button" id="back" href="/">Back</a>
-    </div>
+      <div class="form-row pl-3 pr-3 pt-3">
+        <div class="form-row pl-5">
+          <label for="back" class="sr-only">Back to Login Page</label>
+          <a class="btn btn-primary" role="button" id="back" href="/">Back <i class="fas fa-hand-point-left"></i></a>
+        </div>
+      </div>
     <div class="form-row pl-5 pr-5 pt-5">
       <div class="col-12">
         <table class="table table-responsive-sm table-striped">
@@ -50,21 +52,14 @@
               <td>{{each_dict[each_key]}}</td>
               {% endif %}
               {% endfor %}
-              <td>
-                <a href="/editStudent" class="btn btn-info"><i class="fa fa-edit"></i></a>
-              </td>
-              <td>
-                <a href="/delete?a=30" class="btn btn-danger">
-                  <i class="fa fa-trash"></i>
-                </a>
-              </td>
+              <td><a href="/delete?studentid={{each_dict['studentid']}}" class="btn btn-primary">Delete <i class="fa fa-trash"></i></a></td>
+              <td><a href="/editStudent?studentid={{each_dict['studentid']}}" class="btn btn-primary">Edit <i class="fa fa-user-edit"></i></a></td>
             </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
     </div>
-
     </form>
   </body>
 </html>

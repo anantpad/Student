@@ -15,23 +15,23 @@
   </style> -->
   </head>
   <body>
-  <h1 class="bg-warning p-5">Student Details <i class="fa fa-user-edit"></i></h1>
+  <h1 class="bg-warning p-5">Edit Student Details <i class="fa fa-user-edit"></i></h1>
     <form class="bg-light" action="/editStudent" method="post">
       <div class="form-row ml-5 mr-5">
         <div class="form-group col-2">
           <label for="studentid" class="text-primary">Student Id</label>
-          <input type="text" class="form-control" name="studentid" placeholder="A2C45" value="{{studentid}}" id="studentid">
+          <input type="text" class="form-control" name="studentid" value="{{studentid}}" id="studentid" readonly>
         </div>
         <div class="form-group col-4">
           <label for="firstname" class="text-primary">First Name</label>
-          <input type="text" class="form-control" name="firstname" placeholder="First Name" value="{{firstname}}" id="firstname">
-        </div>
-        <div class="form-group col-5">
-          <label for="lastname" class="text-primary">Last Name</label>
-          <input type="text" class="form-control" name="mi" placeholder="X" value="{{mi}}" id="mi">
+          <input type="text" class="form-control" name="firstname" value="{{firstname}}" id="firstname">
         </div>
         <div class="form-group col-1">
           <label for="mi" class="text-primary">MI</label>
+          <input type="text" class="form-control" name="mi" placeholder="X" value="{{mi}}" id="mi">
+        </div>
+        <div class="form-group col-5">
+          <label for="lastname" class="text-primary">Last Name</label>
           <input type="text" class="form-control" name="lastname" placeholder="Last Name" value="{{lastname}}" id="lastname">
         </div>
       </div>
