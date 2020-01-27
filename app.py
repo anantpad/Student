@@ -2,7 +2,7 @@
 #import packages
 from flask import Flask, request, render_template
 from flask_pymongo import PyMongo
-from flask import redirect, session
+from flask import redirect, session, flash
 from datetime import datetime, date
 
 #initialize
@@ -28,6 +28,7 @@ def login():
 
         studentid = request.form["studentid"]
         session["loggedin"] = studentid
+        flash("Checked in successfully")
         print(session)
         checkintime = datetime.now()
         checkinday = checkintime.strftime("%a")
@@ -54,6 +55,7 @@ def register():
         mongo.db.user.insert_one(
             {"studentid": studentid, "firstname": firstname, "lastname": lastname, "mi": mi, "gender": gender,
              "birthdate": birthdate})
+        flash("Student successfully registered")
         return redirect("/")
 
 @app.route("/studentList", methods = ['GET', 'POST'])
@@ -93,8 +95,8 @@ def attndlist():
     if request.method == 'GET':
         if "loggedin" not in session:
             return redirect("/")
-        elif session["loggedin"] != True:
-            return redirect("/")
+        # elif session["loggedin"] != True:
+        #     return redirect("/")
 
         attenddata = mongo.db.attendance.find({})
         return render_template("attendance.html", attenddata = attenddata)

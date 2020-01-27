@@ -11,6 +11,15 @@
 </head>
 <body>
   <h1 class="bg-warning p-5">Student Attendance <i class="fas fa-user-plus"></i></h1>
+  <div class="form-row p-5">
+    {% with messages = get_flashed_messages() %}
+    {% for i in messages %}
+    <div class="p-3">
+      {{i}}
+    </div>
+    {% endfor %}
+    {% endwith %}
+  </div>
   <form class="form-row p-5" action="/attendance" method="post">
     <div class="form-row pl-5 pr-5 pt-5">
       <label for="back" class="sr-only">Back to Login Page</label>
