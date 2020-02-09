@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     {% extends 'layout.html' %}
-    
   </head>
   <body>
     {% block content %}
@@ -20,13 +19,14 @@
     <form class="form-inline pt-5 pb-5 bg-light" action="/" method="post">
         <div class="form-group pl-5">
           <label for="studentid" class="sr-only">Login Name</label>
-          <input type="text" class="form-control" placeholder="studentid" id="studentid" name="studentid" value="">
+          <input type="text" onkeydown="checkin();" class="form-control" placeholder="studentid" id="studentid" name="studentid" value="">
         </div>
         <div class="form-group pl-5">
-          <input type="submit" class="form-control" id="checkindate" name="checkindate" value="Check In">
+          <input type="submit" class="form-control" data-toggle="modal" data-target="#myModal" id="checkindate" onclick="return checkin();" name="checkindate" value="Check In">
           <!-- <button type="button" class="btn btn-primary">Check In</button> -->
         </div>
     </form>
+    <div class="alertMessage text-danger font-style-bold ml-5" id="alertMessage"></div>
       <div class="form-row p-5 bg-info">
         <div class="col-6">
           <label for="register" class="text">Not Registered Yet?</label>
@@ -40,6 +40,58 @@
           <a class="btn btn-primary" role="button" id="studentList" href="/studentList">Look at List Here</a>
         </div>
       </div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+      <script>
+        // $(document).ready(alert("Page rendered successfully"));
+        // $(document).ready(console.log("Page rendered successfully"));
+        function checkin(){
+          // console.log("Function called");
+          var input = document.getElementById("studentid");
+          var alertMessageDiv = document.getElementById("alertMessage");
+          console.log(alertMessageDiv);
+          var a = input.value;
+          for(i=0;i<a.length;i++){
+            var letter = a[i];
+            if(letter=="<" || letter==">"){
+              // alertMessageDiv.style.fontWeight = "bold";
+              alertMessageDiv.style.fontWeight = "1000";
+              alertMessageDiv.innerHTML = "invalid characters";
+              return false;
+            }
+          }
+          if(input.value.length <= 6){
+            return true;
+          }
+          else {
+            alertMessageDiv.innerHTML = "Too many characters";
+            return false;
+          }
+        }
+      </script>
       {% endblock %}
   </body>
 </html>
