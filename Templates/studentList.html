@@ -52,8 +52,16 @@
               <td>{{each_dict[each_key]}}</td>
               {% endif %}
               {% endfor %}
-              <td><a href="/delete?studentid={{each_dict['studentid']}}" class="btn btn-primary">Delete <i class="fa fa-trash"></i></a></td>
-              <td><a href="/editStudent?studentid={{each_dict['studentid']}}" class="btn btn-primary">Edit <i class="fa fa-user-edit"></i></a></td>
+              <td>
+                <a href="/delete?studentid={{each_dict['studentid']}}" class="btn btn-primary">Delete
+                  <i class="fa fa-trash"></i>
+                </a>
+              </td>
+              <td>
+                <a href="/editStudent?studentid={{each_dict['studentid']}}" class="btn btn-primary">Edit
+                  <i class="fa fa-user-edit"></i>
+                </a>
+              </td>
             </tr>
             {% endfor %}
           </tbody>

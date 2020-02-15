@@ -9,11 +9,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- <style>
-    #firstname {
-      margin: 35px 70px 50px 90px;
+    <style>
+    .occupation {
+      display: none;
     }
-  </style> -->
+  </style>
   </head>
   <body>
   <h1 class="bg-warning p-5">Student Details <i class="fa fa-users"></i></h1>
@@ -49,6 +49,13 @@
           <label for="birthdate" class="text-primary">Birth Date</label>
           <input type="date" class="form-control" name="birthdate" placeholder="Birth Date" value="{{birthdate}}" id="birthdate">
         </div>
+        <div class="col-12 py-3"> <!-- because it has to take entire row -->
+          <button class="btn btn-info" id="addlinfo" type="button" name="button" onclick = "showOccupation(this);">Additional Information</button>
+        </div>
+        <div class="form-group col-6 occupation">
+          <label for="occupation" class="text-primary">Occupation</label>
+          <input class="form-control" name="occupation" id="occupation" value="">
+        </div>
       </div>
         <div class="form-row ml-5 mr-5">
           <div class="form-group mr-3">
@@ -60,5 +67,21 @@
           </div>
         </div>
     </form>
+    <script type="text/javascript">
+      function showOccupation(btn){
+        ele = document.getElementsByClassName("occupation");
+        // console.log(btn);
+        btn.innerHTML = "Hide Additional Information"
+        div = ele[0];
+        if (div.style.display == "none")
+          div.style.display="block";
+        else{
+          div.style.display = "none"
+          btn.innerHTML = "Additional Information"
+        }
+
+
+      }
+    </script>
   </body>
 </html>
