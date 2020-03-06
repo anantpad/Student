@@ -22,8 +22,12 @@
           <input type="text" onkeydown="checkin();" class="form-control" placeholder="studentid" id="studentid" name="studentid" value="">
         </div>
         <div class="form-group pl-5">
-          <input type="submit" class="form-control" data-toggle="modal" data-target="#myModal" id="checkindate" onclick="return checkin();" name="checkindate" value="Check In">
+          <input type="submit" class="form-control" data-toggle="modal" data-target="#myModal" id="checkindate"
+          onclick="return checkin();" name="checkindate" value="Check In">
           <!-- <button type="button" class="btn btn-primary">Check In</button> -->
+        </div>
+        <div class="form-group pl-5" id="containsLink">
+          <button type="button" class="btn btn-primary" onclick="return showLink();" name="button">Click Me</button>
         </div>
     </form>
     <div class="alertMessage text-danger font-style-bold ml-5" id="alertMessage"></div>
@@ -91,7 +95,17 @@
             return false;
           }
         }
+        function showLink(){
+          // link = document.getElementById("containsLink");
+          link = $("#containsLink")
+          // link.innerHTML="<a href = 'https://www.google.com'>https://google.com</a>";
+          console.log(link);
+          tag = document.createElement("H1");
+          tag.innerHTML="Some Text"
+          link[0].appendChild(tag)
+        }
       </script>
+
       {% endblock %}
   </body>
 </html>
